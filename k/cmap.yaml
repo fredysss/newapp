@@ -6,5 +6,5 @@ metadata:
     app: postgres
 data:
   POSTGRES_DB: postgresdb
-  POSTGRES_USER: admina
-  POSTGRES_PASSWORD: test123
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres

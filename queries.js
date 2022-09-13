@@ -1,9 +1,9 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
-  user: 'dude',
-  host: 'localhost',
-  database: 'dudew',
-  password: 'dude123',
+  user: 'postgres',
+  host: 'postgres',
+  database: 'postgresdb',
+  password: 'postgres',
   port: 5432,
 });
 const getUsers = (request, response) => {
@@ -14,6 +14,21 @@ const getUsers = (request, response) => {
     response.status(200).json(results.rows);
   });
 };
+
+const init = (request, response) => {
+  try{
+  pool.query('CREATE TABLE users ( ID SERIAL PRIMARY KEY, name VARCHAR(30), email VARCHAR(30));', (error, results) => {
+    if (error) {
+      throw error;
+    }
+    response.status(200).json(results.rows);
+  });
+}
+catch(err){
+  console.log(err)
+}
+};
+
 
 const getUserById = (request, response) => {
   const id = parseInt(request.params.id);
@@ -74,4 +89,5 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  init
 };

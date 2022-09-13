@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: newappp
-          image: fredysomy/newapp:latest3
+          image: fredysomy/tryapp:latest3
           imagePullPolicy: Always
           ports:
             - name: web 
