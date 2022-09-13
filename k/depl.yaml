@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: newapp
+  template:
+    metadata:
+      labels:
+        app: newapp
+    spec:
+      containers:
+        - name: newappp
+          image: fredysomy/newapp:latest3
+          imagePullPolicy: Always
+          ports:
+            - name: web 
+              containerPort: 3000
+              protocol: TCP
